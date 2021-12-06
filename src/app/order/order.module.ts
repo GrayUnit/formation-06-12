@@ -11,7 +11,7 @@ import { PageListOrderComponent } from './pages/page-list-order/page-list-order.
   ],
   imports: [
     CommonModule,
-    OrderRoutingModule
+    OrderRoutingModule,
   ]
 })
 export class OrderModule { }
