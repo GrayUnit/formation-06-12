@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UiModule } from './ui/ui.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UiModule } from './ui/ui.module';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    UiModule
+    UiModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

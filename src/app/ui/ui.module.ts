@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UiComponent } from './components/ui/ui.component';
 import { TestComponent } from './components/test/test.component';
+import { CoreModule } from '../core/core.module';
+import { IconsModule } from '../icons/icons.module';
 
 
 @NgModule({
@@ -10,7 +12,9 @@ import { TestComponent } from './components/test/test.component';
     TestComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule,
+    IconsModule
   ],
   exports: [
     UiComponent
