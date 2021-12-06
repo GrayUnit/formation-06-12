@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlApi: '192.168.1.100'
 };

@@ -1,0 +1,71 @@
+@import "theme";
+@import "layouts";
+
+header {
+    height: 65px;
+    background: $light-color;
+    padding: 0 $gutter;
+    display: flex;
+    align-items: center;
+}
+
+main {
+    background: darken($light-color, 5);
+    min-height: calc(100vh - 65px);
+    padding-top: 65px;
+}
+
+aside {
+    background: darken($light-color, 10);
+    width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    .scroller {
+        overflow-y: auto;
+        max-height: 100vh;
+        padding-bottom: 65px;
+    }
+}
+
+.close-aside aside {
+    width: 0;
+    overflow: hidden;
+}
+
+.close-aside .shadow {
+    display: none;
+}
+
+.shadow {
+    background: rgba($dark-color, .8);
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1000;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 65px);
+}
+
+.contents {
+    flex-grow: 1;
+}
+
+footer {
+    background: $light-color;
+}
+
+@media (min-width: $md-breakpoint) {
+    .shadow {
+        display: none;
+    }
+    .contents, footer {
+        margin-left: 250px;
+    }
+    .close-aside .contents, .close-aside footer {
+        margin-left: 0;
+    }
+} 
