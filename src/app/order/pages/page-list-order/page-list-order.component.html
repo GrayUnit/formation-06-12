@@ -1,3 +1,33 @@
 <app-template-a [title]="title" subtitle="Sous titre">
     <p>{{ collectionOrder | json}}</p>
+    <!-- <table>
+        <thead>
+            <th>Col 1</th>
+            <th>Col 2</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Val col 1</td>
+                <td>Val col 2</td>
+            </tr>
+            <tr>
+                <td>Val col 1</td>
+                <td>Val col 2</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <app-tab-list [headers]="headers" *ngIf="collectionOrder">
+        <tr *ngFor="let item of collectionOrder">
+            <td>{{ item.typePresta }}</td>
+            <td>{{ item.client }}</td>
+            <td>{{ item.nbJours }}</td>
+            <td>{{ item.tjmHt }}</td>
+            <td>{{ item.totalHt() }}</td>
+            <td>{{ item.totalTtc() }}</td>
+            <td>{{ item.state }}</td>
+            <td>{{ item.comment }}</td>
+        </tr>
+    </app-tab-list>
+    <app-tab-list [headers]="['1', '2']"></app-tab-list>
+    <app-tab-list [headers]="['toto', 'titi', 'tata']"></app-tab-list>
 </app-template-a>
