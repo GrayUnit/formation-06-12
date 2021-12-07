@@ -16,18 +16,18 @@
             </tr>
         </tbody>
     </table> -->
-    <app-tab-list [headers]="headers" *ngIf="collectionOrder">
+    <app-tab-list-dark [headers]="headers" *ngIf="collectionOrder">
         <tr *ngFor="let item of collectionOrder">
-            <td>{{ item.typePresta }}</td>
+            <td>{{ item.typePresta | uppercase | lowercase }}</td>
             <td>{{ item.client }}</td>
             <td>{{ item.nbJours }}</td>
             <td>{{ item.tjmHt }}</td>
-            <td>{{ item.totalHt() }}</td>
-            <td>{{ item.totalTtc() }}</td>
+            <td>{{ item | total }}</td>
+            <td>{{ item | total: 'ttc' }}</td>
             <td>{{ item.state }}</td>
             <td>{{ item.comment }}</td>
         </tr>
-    </app-tab-list>
+    </app-tab-list-dark>
     <app-tab-list [headers]="['1', '2']"></app-tab-list>
     <app-tab-list [headers]="['toto', 'titi', 'tata']"></app-tab-list>
 </app-template-a>

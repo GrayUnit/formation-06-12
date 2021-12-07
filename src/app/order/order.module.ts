@@ -5,11 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderRoutingModule } from './order-routing.module';
 import { PageListOrderComponent } from './pages/page-list-order/page-list-order.component';
 import { SharedModule } from '../shared/shared.module';
+import { TotalPipe } from './pipes/total.pipe';
 
 
 @NgModule({
   declarations: [
-    PageListOrderComponent
+    PageListOrderComponent,
+    TotalPipe
   ],
   imports: [
     CommonModule,
