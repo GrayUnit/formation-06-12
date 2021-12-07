@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-template-a',
@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateAComponent implements OnInit {
 
-  public title = "Titre";
-  public subtitle = "SousTitre"
+  @Input() public title: string = "";
+  @Input() public subtitle: string = "Toto";
   constructor() { }
 
   ngOnInit(): void {

@@ -10,6 +10,7 @@ import { OrderService } from '../../services/order.service';
 export class PageListOrderComponent implements OnInit {
 
   public collectionOrder: Order[] = [];
+  public title: string = "Liste order"
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {

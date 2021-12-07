@@ -14,7 +14,8 @@ import { TemplateBComponent } from './components/template-b/template-b.component
     CommonModule
   ],
   exports: [
-    TemplateAComponent
+    TemplateAComponent,
+    TemplateBComponent
   ]
 })
 export class TemplatesModule { }
