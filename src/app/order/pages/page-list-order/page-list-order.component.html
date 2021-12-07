@@ -23,7 +23,17 @@
             <td>{{ item.tjmHt | currency: 'EUR' }}</td>
             <td>{{ item | total | currency: 'EUR' }}</td>
             <td>{{ item | total: 'ttc' | currency: 'EUR' }}</td>
-            <td [appState]="item.state">{{ item.state }}</td>
+            <td [appState]="item.state">
+                <select (change)="changeState(item, $event)">
+                    <option 
+                        *ngFor="let state of states" 
+                        [value]="state"
+                        [selected]="state === item.state"
+                    >
+                        {{ state }}
+                    </option>
+                </select>
+            </td>
             <td>{{ item.comment | formatText }}</td>
         </tr>
     </app-tab-list-dark>

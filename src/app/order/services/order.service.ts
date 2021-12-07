@@ -31,5 +31,10 @@ export class OrderService {
     return this.pCollection;
   }
 
+  public updateItem(item: Order) {
+    return this.http.put<Order>(`${this.urlApi}orders/${item.id}`, item);
+  }
+
+
 
 }
