@@ -43,6 +43,14 @@ export class PageListOrderComponent implements OnInit {
   public changeState(item: Order, event: any) {
     console.log(item);
     console.log(event);
+    this.orderService.changeState(item, event.target.value).subscribe(
+      (res) => {
+        item.state = res.state;
+      },
+      (error) => {
+        event.target.value = item.state;
+      }
+    )
   }
 
 }

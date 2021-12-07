@@ -1,0 +1,16 @@
+@import "theme";
+
+.tab-list {
+    .state-cancel {
+        background: $color-error;
+    }
+    
+    .state-option {
+        background: $color3;
+    }
+    
+    .state-confirmed {
+        background: $color-success;
+    }
+}
+

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { StateOrder } from '../enums/state-order';
 import { Order } from '../models/order';
 
 @Injectable({
@@ -29,6 +30,12 @@ export class OrderService {
 
   get collection(): Observable<Order[]> {
     return this.pCollection;
+  }
+
+  public changeState(item: Order, state: StateOrder): Observable<Order> {
+    let obj = new Order({...item});
+    obj.state = state;
+    return this.updateItem(obj);
   }
 
   public updateItem(item: Order) {

@@ -1,48 +1,48 @@
 {
-    "orders": [
-      {
-        "tjmHt": 1200,
-        "nbJours": 10,
-        "tva": 20,
-        "state": "Confirmed",
-        "id": 1,
-        "typePresta": "Coaching",
-        "client": "Modis",
-        "comment": "Merci Modis pour les 1.2k jour"
-      },
-      {
-        "tjmHt": 1200,
-        "nbJours": 2,
-        "tva": 20,
-        "state": "Option",
-        "typePresta": "coaching",
-        "client": "Capgemini",
-        "comment": "merci cap",
-        "id": 2
-      },
-      {
-        "tjmHt": 1200,
-        "nbJours": 1,
-        "tva": 20,
-        "state": "Confirmed",
-        "typePresta": "formation",
-        "client": "Edugroupe",
-        "comment": "merci edugroupe",
-        "id": 3
-      }
-    ],
-    "clients": [
-      {
-        "id": 1,
-        "name": "Christophe",
-        "ca": 12000,
-        "state": "Actif"
-      },
-      {
-        "id": 2,
-        "name": "Jeff",
-        "ca": 22000,
-        "state": "Actif"
-      }
-    ]
-  } 
+  "orders": [
+    {
+      "tjmHt": 1200,
+      "nbJours": 10,
+      "tva": 20,
+      "state": "Confirmed",
+      "id": 1,
+      "typePresta": "Coaching",
+      "client": "Modis",
+      "comment": "Merci Modis pour les 1.2k jour"
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 2,
+      "tva": 20,
+      "state": "Confirmed",
+      "typePresta": "coaching",
+      "client": "Capgemini",
+      "comment": "merci cap",
+      "id": 2
+    },
+    {
+      "tjmHt": 1200,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Cancel",
+      "typePresta": "formation",
+      "client": "Edugroupe",
+      "comment": "merci edugroupe",
+      "id": 3
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Christophe",
+      "ca": 12000,
+      "state": "Actif"
+    },
+    {
+      "id": 2,
+      "name": "Jeff",
+      "ca": 22000,
+      "state": "Actif"
+    }
+  ]
+}

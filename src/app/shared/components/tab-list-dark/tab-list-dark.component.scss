@@ -1,0 +1,15 @@
+@import "theme";
+
+.table-dark {
+    .state-cancel {
+        background: $color1;
+    }
+    
+    .state-option {
+        background: $color2;
+    }
+    
+    .state-confirmed {
+        background: $color3;
+    }
+}
