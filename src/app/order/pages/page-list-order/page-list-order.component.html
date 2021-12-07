@@ -1,5 +1,4 @@
 <app-template-a [title]="title" subtitle="Sous titre">
-    <p>{{ collectionOrder | json}}</p>
     <!-- <table>
         <thead>
             <th>Col 1</th>
@@ -18,14 +17,14 @@
     </table> -->
     <app-tab-list-dark [headers]="headers" *ngIf="collectionOrder">
         <tr *ngFor="let item of collectionOrder">
-            <td>{{ item.typePresta | uppercase | lowercase }}</td>
+            <td>{{ item.typePresta | uppercase | lowercase | formatText}}</td>
             <td>{{ item.client }}</td>
             <td>{{ item.nbJours }}</td>
-            <td>{{ item.tjmHt }}</td>
-            <td>{{ item | total }}</td>
-            <td>{{ item | total: 'ttc' }}</td>
-            <td>{{ item.state }}</td>
-            <td>{{ item.comment }}</td>
+            <td>{{ item.tjmHt | currency: 'EUR' }}</td>
+            <td>{{ item | total | currency: 'EUR' }}</td>
+            <td>{{ item | total: 'ttc' | currency: 'EUR' }}</td>
+            <td [appState]="item.state">{{ item.state }}</td>
+            <td>{{ item.comment | formatText }}</td>
         </tr>
     </app-tab-list-dark>
     <app-tab-list [headers]="['1', '2']"></app-tab-list>

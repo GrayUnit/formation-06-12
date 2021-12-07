@@ -11,9 +11,14 @@ export class TotalPipe implements PipeTransform {
       if(args[0] === 'ttc') {
         return value.totalTtc();
       }
+      this.toto();
       return value.totalHt();
     }
     return null;
+  }
+
+  private toto() {
+    console.log("test");
   }
 
 }
