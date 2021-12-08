@@ -1,0 +1,17 @@
+@import 'theme';
+@import 'fonts';
+
+a, button {
+  border: none;
+  margin-left: 10px;
+  color: $light-color;
+  display: inline-block;
+  padding: 1em;
+  font-size: $regular-fz;
+  background: $color3;
+  transition: all .5s;
+  &:hover {
+    text-decoration: none;
+    background: darken($color3, 10);
+  }
+} 

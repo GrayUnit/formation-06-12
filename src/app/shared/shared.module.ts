@@ -6,6 +6,8 @@ import { ListDisplayComponent } from './components/list-display/list-display.com
 import { TabListDarkComponent } from './components/tab-list-dark/tab-list-dark.component';
 import { FormatTextPipe } from './pipes/format-text.pipe';
 import { StateDirective } from './directives/state.directive';
+import { BtnComponent } from './components/btn/btn.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,18 +16,21 @@ import { StateDirective } from './directives/state.directive';
     ListDisplayComponent,
     TabListDarkComponent,
     FormatTextPipe,
-    StateDirective
+    StateDirective,
+    BtnComponent
   ],
   imports: [
     CommonModule,
-    TemplatesModule
+    TemplatesModule,
+    RouterModule
   ],
   exports: [
     TemplatesModule,
     TabListComponent,
     TabListDarkComponent,
     FormatTextPipe,
-    StateDirective
+    StateDirective,
+    BtnComponent
   ]
 })
 export class SharedModule { }

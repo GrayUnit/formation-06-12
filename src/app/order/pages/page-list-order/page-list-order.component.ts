@@ -53,4 +53,9 @@ export class PageListOrderComponent implements OnInit {
     )
   }
 
+  public test(event: any) {
+    console.log("Appel du bouton");
+    console.log(event);
+  }
+
 }
