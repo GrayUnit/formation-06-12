@@ -8,6 +8,7 @@ import { FormatTextPipe } from './pipes/format-text.pipe';
 import { StateDirective } from './directives/state.directive';
 import { BtnComponent } from './components/btn/btn.component';
 import { RouterModule } from '@angular/router';
+import { IconsModule } from '../icons/icons.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     TemplatesModule,
-    RouterModule
+    RouterModule,
+    IconsModule
   ],
   exports: [
     TemplatesModule,
@@ -30,7 +32,8 @@ import { RouterModule } from '@angular/router';
     TabListDarkComponent,
     FormatTextPipe,
     StateDirective,
-    BtnComponent
+    BtnComponent,
+    IconsModule
   ]
 })
 export class SharedModule { }

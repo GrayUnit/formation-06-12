@@ -35,6 +35,9 @@
                 </select>
             </td>
             <td>{{ item.comment | formatText }}</td>
+            <td>
+                <app-icon-edit (click)="goToUpdate(item, $event)"></app-icon-edit>
+            </td>
         </tr>
     </app-tab-list-dark>
 

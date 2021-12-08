@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { IconMenuComponent } from './components/icon-menu/icon-menu.component';
 import { IconCloseComponent } from './components/icon-close/icon-close.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconEditComponent } from './components/icon-edit/icon-edit.component';
 
 
 
 @NgModule({
   declarations: [
     IconMenuComponent,
-    IconCloseComponent
+    IconCloseComponent,
+    IconEditComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   exports: [
     IconMenuComponent,
-    IconCloseComponent
+    IconCloseComponent,
+    IconEditComponent
   ]
 })
 export class IconsModule { }

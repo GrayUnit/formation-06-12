@@ -26,7 +26,8 @@ export class PageListOrderComponent implements OnInit {
       "Total Ht",
       "Total Ttc",
       "State",
-      "Comment"
+      "Comment",
+      "Actions"
     ];
   }
 
@@ -48,6 +49,11 @@ export class PageListOrderComponent implements OnInit {
 
   public test(event: any) {
     console.log("Appel du bouton");
+    console.log(event);
+  }
+
+  public goToUpdate(item: Order, event: any) {
+    console.log(item);
     console.log(event);
   }
 
