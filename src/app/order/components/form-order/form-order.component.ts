@@ -14,25 +14,24 @@ export class FormOrderComponent implements OnInit {
   @Input() item: Order = new Order();
   @Output() clicked: EventEmitter<Order> = new EventEmitter();
 
-  public form: FormGroup;
+  public form!: FormGroup;
   public states = Object.values(StateOrder);
 
   constructor(
     private fb: FormBuilder
-  ) { 
+  ) {}
+
+  ngOnInit(): void {
     this.form = this.fb.group({
       tjmHt: [this.item.tjmHt, Validators.required],
       nbJours: [this.item.nbJours],
       tva: [this.item.tva],
       state: [this.item.state],
-      typePresta: [this.item.typePresta, ValidatePhoneNumber],
-      client: [this.item.client, Validators.compose([Validators.required, Validators.minLength(2), ValidatePhoneNumber])],
+      typePresta: [this.item.typePresta],
+      client: [this.item.client, Validators.compose([Validators.required, Validators.minLength(2)])],
       comment: [this.item.comment, Validators.minLength(2)],
       id: [this.item.id]
     })
-  }
-
-  ngOnInit(): void {
   }
 
   public onSubmit() {

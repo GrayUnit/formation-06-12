@@ -50,4 +50,8 @@ export class OrderService {
     return this.http.post<Order>(`${this.urlApi}orders`, item);
   }
 
+  public getItemById(id: number) {
+    return this.http.get<Order>(`${this.urlApi}orders/${id}`);
+  }
+
 }

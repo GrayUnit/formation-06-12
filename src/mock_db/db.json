@@ -5,10 +5,10 @@
       "nbJours": 10,
       "tva": 20,
       "state": "Confirmed",
-      "id": 1,
-      "typePresta": "Coaching",
+      "typePresta": "Formation",
       "client": "Modis",
-      "comment": "Merci Modis pour les 1.2k jour"
+      "comment": "Merci Modis pour les 1.2k jour",
+      "id": 1
     },
     {
       "tjmHt": 1200,
@@ -16,7 +16,7 @@
       "tva": 20,
       "state": "Confirmed",
       "typePresta": "coaching",
-      "client": "Capgemini",
+      "client": "test",
       "comment": "merci cap",
       "id": 2
     },

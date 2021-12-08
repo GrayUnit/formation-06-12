@@ -1,3 +1,4 @@
-<!-- <app-template-a title="Order" subtitle="Edit">
-    <app-form-order (clicked)="edit($event)"></app-form-order>
-</app-template-a> -->
+<app-template-a title="Order" subtitle="Edit">
+    <app-form-order *ngIf="item$ | async as item" [item]="item" (clicked)="edit($event)"></app-form-order>
+    <!-- <span>{{ item | json}}</span> -->
+</app-template-a>
