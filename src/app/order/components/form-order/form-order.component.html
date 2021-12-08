@@ -9,6 +9,14 @@
         <div class="form-group">
             <label for="client">Client :</label>
             <input formControlName="client" type="text" class="form-control" id="client">
+            <div 
+                class="alert alert-danger"
+                *ngIf="form.get('client')?.invalid && form.get('client')?.touched"
+            >
+                <span *ngIf="form.get('client')?.errors?.required">Champs obligatoire</span>
+                <span *ngIf="form.get('client')?.errors?.minlength">Taille minimum 2 char.</span>
+                <span *ngIf="form.get('client')?.errors?.phoneNumber">Numéro de téléphone mal formatté</span>
+            </div>
         </div>
 
         <div class="form-group">
@@ -19,6 +27,12 @@
         <div class="form-group">
             <label for="tjmHt">Taux Journalier Ht :</label>
             <input formControlName="tjmHt" type="text" class="form-control" id="tjmHt">
+            <div 
+                class="alert alert-danger"
+                *ngIf="form.get('tjmHt')?.invalid && form.get('tjmHt')?.touched"
+            >
+                Champs obligatoire
+            </div>
         </div>
 
         <div class="form-group">
@@ -29,6 +43,12 @@
         <div class="form-group">
             <label for="comment">Commentaire :</label>
             <input formControlName="comment" type="text" class="form-control" id="comment">
+            <div 
+                class="alert alert-danger"
+                *ngIf="form.get('comment')?.invalid && form.get('comment')?.touched"
+            >
+                Taille minimum 2 char.
+            </div>
         </div>
 
         <div class="form-group">
@@ -38,6 +58,6 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
     </form>
 </div>

@@ -49,6 +49,36 @@
       "client": "cvbvcb",
       "comment": "Un super commentaire",
       "id": 5
+    },
+    {
+      "tjmHt": 300,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Option",
+      "typePresta": "Formation",
+      "client": "test",
+      "comment": null,
+      "id": 6
+    },
+    {
+      "tjmHt": "",
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Option",
+      "typePresta": "Formation",
+      "client": ",hjkhj,jh,",
+      "comment": "hg,jh,",
+      "id": 7
+    },
+    {
+      "tjmHt": "3",
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Option",
+      "typePresta": "Formation",
+      "client": "test",
+      "comment": null,
+      "id": 8
     }
   ],
   "clients": [
@@ -63,6 +93,12 @@
       "name": "Jeff",
       "ca": 22000,
       "state": "Actif"
+    },
+    {
+      "name": "formation",
+      "ca": 1000,
+      "state": "Active",
+      "id": 3
     }
   ]
 }

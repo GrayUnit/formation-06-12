@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatePhoneNumber } from 'src/app/shared/validators/phone-validator';
 import { StateOrder } from '../../enums/state-order';
 import { Order } from '../../models/order';
 
@@ -20,13 +21,13 @@ export class FormOrderComponent implements OnInit {
     private fb: FormBuilder
   ) { 
     this.form = this.fb.group({
-      tjmHt: [this.item.tjmHt],
+      tjmHt: [this.item.tjmHt, Validators.required],
       nbJours: [this.item.nbJours],
       tva: [this.item.tva],
       state: [this.item.state],
-      typePresta: [this.item.typePresta],
-      client: [this.item.client],
-      comment: [this.item.comment],
+      typePresta: [this.item.typePresta, ValidatePhoneNumber],
+      client: [this.item.client, Validators.compose([Validators.required, Validators.minLength(2), ValidatePhoneNumber])],
+      comment: [this.item.comment, Validators.minLength(2)],
       id: [this.item.id]
     })
   }

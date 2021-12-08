@@ -24,4 +24,8 @@ export class ClientService {
   get collection(): Observable<Client[]> {
     return this.pCollection;
   }
+
+  public addItem(item: Client): Observable<Client> {
+    return this.http.post<Client>(`${this.urlApi}clients`, item);
+  }
 }

@@ -1,0 +1,22 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+        <div class="form-group">
+            <label for="name">Nom :</label>
+            <input formControlName="name" type="text" class="form-control" id="name">  
+        </div>
+
+        <div class="form-group">
+            <label for="ca">Chiffre d'affaire :</label>
+            <input formControlName="ca" type="number" class="form-control" id="ca">  
+        </div>
+
+        <div class="form-group">
+            <label for="state">Status :</label>
+            <select formControlName="state" id="state" class="form-control">
+                <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
