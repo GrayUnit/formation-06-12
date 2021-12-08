@@ -1,0 +1,43 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="type">Type :</label>
+            <input formControlName="typePresta" type="text" class="form-control" id="type">
+        </div>
+
+        <div class="form-group">
+            <label for="client">Client :</label>
+            <input formControlName="client" type="text" class="form-control" id="client">
+        </div>
+
+        <div class="form-group">
+            <label for="nbJours">Nb. Jours :</label>
+            <input formControlName="nbJours" type="text" class="form-control" id="nbJours">
+        </div>
+
+        <div class="form-group">
+            <label for="tjmHt">Taux Journalier Ht :</label>
+            <input formControlName="tjmHt" type="text" class="form-control" id="tjmHt">
+        </div>
+
+        <div class="form-group">
+            <label for="tva">TVA :</label>
+            <input formControlName="tva" type="text" class="form-control" id="tva">
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Commentaire :</label>
+            <input formControlName="comment" type="text" class="form-control" id="comment">
+        </div>
+
+        <div class="form-group">
+            <label for="state">State :</label>
+            <select formControlName="state" class="form-control" id="state">
+                <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
