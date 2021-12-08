@@ -15,7 +15,7 @@
             </tr>
         </tbody>
     </table> -->
-    <app-tab-list-dark [headers]="headers" *ngIf="collectionOrder">
+    <app-tab-list-dark [headers]="headers" *ngIf="collectionOrder$ | async as collectionOrder">
         <tr *ngFor="let item of collectionOrder">
             <td>{{ item.typePresta | uppercase | lowercase | formatText}}</td>
             <td>{{ item.client }}</td>

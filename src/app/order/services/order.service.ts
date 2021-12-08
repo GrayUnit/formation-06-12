@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { StateOrder } from '../enums/state-order';
 import { Order } from '../models/order';
@@ -19,7 +19,11 @@ export class OrderService {
     this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
       map((datas) => {
         return datas.map((item) => new Order(item));
-      })
+      }),
+      // catchError((err) => { 
+      //   console.log(err);
+      //   return HttpErrorResponse(err);
+      // })
     );
     // this.pCollection.subscribe(
     //   (datas) => {
