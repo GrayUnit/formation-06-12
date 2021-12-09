@@ -36,7 +36,8 @@
             </td>
             <td>{{ item.comment | formatText }}</td>
             <td>
-                <app-icon-edit (click)="goToUpdate(item)"></app-icon-edit>
+                <app-icon-edit (click)="goToUpdate(item)" style="margin-right: 1rem;"></app-icon-edit>
+                <app-icon-delete></app-icon-delete>
             </td>
         </tr>
     </app-tab-list-dark>

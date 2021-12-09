@@ -4,6 +4,7 @@ import { IconMenuComponent } from './components/icon-menu/icon-menu.component';
 import { IconCloseComponent } from './components/icon-close/icon-close.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconEditComponent } from './components/icon-edit/icon-edit.component';
+import { IconDeleteComponent } from './components/icon-delete/icon-delete.component';
 
 
 
@@ -11,7 +12,8 @@ import { IconEditComponent } from './components/icon-edit/icon-edit.component';
   declarations: [
     IconMenuComponent,
     IconCloseComponent,
-    IconEditComponent
+    IconEditComponent,
+    IconDeleteComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { IconEditComponent } from './components/icon-edit/icon-edit.component';
   exports: [
     IconMenuComponent,
     IconCloseComponent,
-    IconEditComponent
+    IconEditComponent,
+    IconDeleteComponent
   ]
 })
 export class IconsModule { }

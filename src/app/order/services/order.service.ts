@@ -54,4 +54,8 @@ export class OrderService {
     return this.http.get<Order>(`${this.urlApi}orders/${id}`);
   }
 
+  public deleteItem(item: Order) {
+    return this.http.delete<Order>(`${this.urlApi}orders/${item.id}`);
+  }
+
 }
