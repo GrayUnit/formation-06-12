@@ -28,4 +28,12 @@ export class ClientService {
   public addItem(item: Client): Observable<Client> {
     return this.http.post<Client>(`${this.urlApi}clients`, item);
   }
+
+  public updateItem(item: Client): Observable<Client> {
+    return this.http.put<Client>(`${this.urlApi}clients/${item.id}`, item);
+  }
+
+  public getItemById(id: number): Observable<Client> {
+    return this.http.get<Client>(`${this.urlApi}clients/${id}`);
+  }
 }

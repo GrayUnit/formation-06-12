@@ -13,21 +13,23 @@ export class FormClientComponent implements OnInit {
   @Input() client: Client = new Client();
   @Output() submitted: EventEmitter<Client> = new EventEmitter();
 
-  public form: FormGroup;
+  public form!: FormGroup;
   public states = Object.values(StateClient);
 
   constructor(
     private fb: FormBuilder
   ) { 
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.client);
     this.form = this.fb.group({
       name: [this.client.name],
       ca: [this.client.ca],
       state: [this.client.state],
       id: [this.client.id]
     })
-  }
-
-  ngOnInit(): void {
   }
 
   public onSubmit() {

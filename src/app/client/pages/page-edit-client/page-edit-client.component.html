@@ -1,0 +1,8 @@
+<app-template-b title="Client" subtitle="Edit">
+    <app-form-client 
+        *ngIf="client$ | async as client" 
+        [client]="client"
+        (submitted)="edit($event)"
+    >
+    </app-form-client>
+</app-template-b>

@@ -20,7 +20,10 @@ export class PageEditOrderComponent implements OnInit, OnDestroy {
     private orderService: OrderService,
     private currentRoute: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.router.getCurrentNavigation()?.extras.state?.data;
+    console.log(this.router.getCurrentNavigation()?.extras.state);
+  }
 
   ngOnInit(): void {
     // this.subscription = this.currentRoute.paramMap.subscribe(
@@ -34,18 +37,6 @@ export class PageEditOrderComponent implements OnInit, OnDestroy {
     //   }
     // )
 
-    this.currentRoute.data.subscribe(
-      (data) => {
-        console.log(data);
-      }
-    )
-
-    this.currentRoute.queryParamMap.subscribe(
-      (data) => {
-        console.log("Query params");
-        console.log(data.get("data"));
-      }
-    )
 
     // console.log(this.currentRoute.snapshot.queryParamMap.get("data"));
 

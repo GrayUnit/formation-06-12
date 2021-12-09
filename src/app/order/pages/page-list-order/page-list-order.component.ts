@@ -57,8 +57,8 @@ export class PageListOrderComponent implements OnInit {
   }
 
   public goToUpdate(item: Order) {
-    // this.router.navigate(['orders', 'edit', item.id], {queryParams: {data: item}});
-    this.router.navigate(['orders', 'edit', item.id]);
+    this.router.navigate(['orders', 'edit', item.id], {state: {data: item}});
+    //this.router.navigate(['orders', 'edit', item.id]);
   }
 
 }

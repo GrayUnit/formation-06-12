@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -11,11 +12,15 @@ export class PageListClientComponent implements OnInit {
 
   public collectionClient: Client[] = [];
   public headers: string[];
-  constructor(private clientService: ClientService) { 
+  constructor(
+    private clientService: ClientService,
+    private router: Router
+  ) { 
     this.headers = [
       "Name",
       "CA",
-      "State"
+      "State",
+      "Actions"
     ]
   }
 
@@ -27,4 +32,7 @@ export class PageListClientComponent implements OnInit {
     )
   }
 
+  public goToUpdate(item: Client) {
+    this.router.navigate(['clients', 'edit', item.id]);
+  }
 }

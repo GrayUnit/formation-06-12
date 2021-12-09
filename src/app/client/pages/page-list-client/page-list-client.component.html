@@ -4,6 +4,9 @@
             <td>{{ item.name }}</td>
             <td>{{ item.ca }}</td>
             <td>{{ item.state }}</td>
+            <td>
+                <app-icon-edit (click)="goToUpdate(item)"></app-icon-edit>
+            </td>
         </tr>
     </app-tab-list>
     <app-btn route="/clients/add" label="Ajouter un client"></app-btn>

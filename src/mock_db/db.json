@@ -16,7 +16,7 @@
       "tva": 20,
       "state": "Confirmed",
       "typePresta": "coaching",
-      "client": "test",
+      "client": "teste",
       "comment": "merci cap",
       "id": 2
     },
@@ -83,10 +83,10 @@
   ],
   "clients": [
     {
-      "id": 1,
-      "name": "Christophe",
+      "name": "Test",
       "ca": 12000,
-      "state": "Actif"
+      "state": "Actif",
+      "id": 1
     },
     {
       "id": 2,
