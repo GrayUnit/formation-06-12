@@ -17,22 +17,28 @@ export class OrderService {
 
 
   constructor(private http: HttpClient) {
+    // On s'abonne à refresh
     this.refresh$.subscribe(
       (refreshing) => {
         console.log(refreshing);
         if(refreshing === true) {
+          // Déclenche notre requete Get pour récupérer les données
           this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
             map((datas) => {
+              // Transformer les données de brut du serveur en objet Order
               return datas.map((item) => new Order(item))
             })
           ).subscribe(
             (datas) => {
+              // Je remplis la collection de mon service
+              // Avec les données retournées du serveur (et transformées en objet)
               this.pCollection.next(datas);
             }
           )
         }
       }
     )
+    // Pour initialiser la collection avec ses valeurs
     this.refresh$.next(true);
     // this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
     //       map((datas) => {
