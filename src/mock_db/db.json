@@ -4,7 +4,7 @@
       "tjmHt": 1200,
       "nbJours": 10,
       "tva": 20,
-      "state": "Confirmed",
+      "state": "Option",
       "typePresta": "Formation",
       "client": "Modis",
       "comment": "Merci Modis pour les 1.2k jour",
@@ -19,6 +19,16 @@
       "client": "Test",
       "comment": null,
       "id": 2
+    },
+    {
+      "tjmHt": 300,
+      "nbJours": 1,
+      "tva": 20,
+      "state": "Option",
+      "typePresta": "Formation",
+      "client": "test",
+      "comment": null,
+      "id": 3
     }
   ],
   "clients": [

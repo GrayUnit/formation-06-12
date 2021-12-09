@@ -23,6 +23,7 @@ export class PageListOrderComponent implements OnInit {
     private router: Router
   ) {
     this.collectionOrder$ = this.orderService.collection;
+    this.orderService.refreshCollection();
     // this.orderService.collection.subscribe(
     //   (data) => {
     //     console.log(data);
