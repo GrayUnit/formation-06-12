@@ -11,74 +11,14 @@
       "id": 1
     },
     {
-      "tjmHt": 1200,
-      "nbJours": 2,
+      "tjmHt": 300,
+      "nbJours": 1,
       "tva": 20,
-      "state": "Confirmed",
-      "typePresta": "coaching",
-      "client": "teste",
-      "comment": "merci cap",
+      "state": "Option",
+      "typePresta": "Formation",
+      "client": "Test",
+      "comment": null,
       "id": 2
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Cancel",
-      "typePresta": "formation",
-      "client": "Edugroupe",
-      "comment": "merci edugroupe",
-      "id": 3
-    },
-    {
-      "tjmHt": 300,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Option",
-      "typePresta": "Formation",
-      "client": "test",
-      "comment": "tegfdfgfdg",
-      "id": 4
-    },
-    {
-      "tjmHt": 300,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Confirmed",
-      "typePresta": "fvbgcbb",
-      "client": "cvbvcb",
-      "comment": "Un super commentaire",
-      "id": 5
-    },
-    {
-      "tjmHt": 300,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Option",
-      "typePresta": "Formation",
-      "client": "test",
-      "comment": null,
-      "id": 6
-    },
-    {
-      "tjmHt": "",
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Option",
-      "typePresta": "Formation",
-      "client": ",hjkhj,jh,",
-      "comment": "hg,jh,",
-      "id": 7
-    },
-    {
-      "tjmHt": "3",
-      "nbJours": 1,
-      "tva": 20,
-      "state": "Option",
-      "typePresta": "Formation",
-      "client": "test",
-      "comment": null,
-      "id": 8
     }
   ],
   "clients": [

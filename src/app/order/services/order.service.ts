@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { StateOrder } from '../enums/state-order';
 import { Order } from '../models/order';
@@ -11,20 +11,37 @@ import { Order } from '../models/order';
 })
 export class OrderService {
 
-  private pCollection: Observable<Order[]>;
+  private pCollection: Subject<Order[]> = new Subject();
   private urlApi = environment.urlApi;
+  private refresh$: Subject<boolean> = new Subject();
 
 
-  constructor(private http: HttpClient) { 
-    this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
-      map((datas) => {
-        return datas.map((item) => new Order(item));
-      }),
-      // catchError((err) => { 
-      //   console.log(err);
-      //   return HttpErrorResponse(err);
-      // })
-    );
+  constructor(private http: HttpClient) {
+    this.refresh$.subscribe(
+      (refreshing) => {
+        console.log(refreshing);
+        if(refreshing === true) {
+          this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
+            map((datas) => {
+              return datas.map((item) => new Order(item))
+            })
+          ).subscribe(
+            (datas) => {
+              this.pCollection.next(datas);
+            }
+          )
+        }
+      }
+    )
+    this.refresh$.next(true);
+    // this.pCollection = this.http.get<Order[]>(`${this.urlApi}orders`).pipe(
+    //       map((datas) => {
+    //         return datas.map((item) => new Order(item));
+    //       }),
+    // );
+
+
+
     // this.pCollection.subscribe(
     //   (datas) => {
     //     console.log(datas);
@@ -33,7 +50,7 @@ export class OrderService {
   }
 
   get collection(): Observable<Order[]> {
-    return this.pCollection;
+    return this.pCollection.asObservable();
   }
 
   public changeState(item: Order, state: StateOrder): Observable<Order> {
@@ -43,7 +60,11 @@ export class OrderService {
   }
 
   public updateItem(item: Order) {
-    return this.http.put<Order>(`${this.urlApi}orders/${item.id}`, item);
+    return this.http.put<Order>(`${this.urlApi}orders/${item.id}`, item).pipe(
+      tap((data) => {
+        this.refresh$.next(true);
+      })
+    );
   }
 
   public addItem(item: Order) {
@@ -55,7 +76,11 @@ export class OrderService {
   }
 
   public deleteItem(item: Order) {
-    return this.http.delete<Order>(`${this.urlApi}orders/${item.id}`);
+    return this.http.delete<Order>(`${this.urlApi}orders/${item.id}`).pipe(
+      tap((datas) => {
+        this.refresh$.next(true);
+      }),
+    )
   }
 
 }

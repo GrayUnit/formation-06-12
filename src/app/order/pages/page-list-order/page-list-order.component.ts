@@ -13,6 +13,7 @@ import { OrderService } from '../../services/order.service';
 export class PageListOrderComponent implements OnInit {
 
   public collectionOrder$: Observable<Order[]>;
+  //public collectionOrder!: Order[];
   public title: string = "Liste order";
   public headers: string[];
   public states = Object.values(StateOrder);
@@ -22,6 +23,11 @@ export class PageListOrderComponent implements OnInit {
     private router: Router
   ) {
     this.collectionOrder$ = this.orderService.collection;
+    // this.orderService.collection.subscribe(
+    //   (data) => {
+    //     console.log(data);
+    //   }
+    // )
     this.headers = [
       "Type",
       "Client",
@@ -59,6 +65,10 @@ export class PageListOrderComponent implements OnInit {
   public goToUpdate(item: Order) {
     this.router.navigate(['orders', 'edit', item.id], {state: {data: item}});
     //this.router.navigate(['orders', 'edit', item.id]);
+  }
+
+  public deleteItem(item: Order) {
+    this.orderService.deleteItem(item).subscribe();
   }
 
 }
