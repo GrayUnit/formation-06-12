@@ -18,4 +18,9 @@ export class UiComponent implements OnInit {
     this.open = !this.open;
   }
 
+
+  public check() {
+    console.log("CD Ui");
+  }
+
 }

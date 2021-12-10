@@ -14,4 +14,8 @@ export class IconDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  public check() {
+    console.log("CD Icon Delete");
+  }
 }
