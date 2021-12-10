@@ -65,6 +65,13 @@
       "firstName": "test",
       "lastName": "test",
       "id": 2
+    },
+    {
+      "email": "test2@test.fr",
+      "password": "$2a$10$DnaN3R5EaOHp5nd61kHTCelt11E.kv4knOexm8Kv46eaUTZr/XyLy",
+      "firstName": "test",
+      "lastName": "test",
+      "id": 3
     }
   ]
 }

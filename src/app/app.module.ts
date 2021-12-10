@@ -14,6 +14,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { createTranslateLoader } from './core/helpers/translate-loader';
+import { ToastrModule } from 'ngx-toastr';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -36,7 +37,8 @@ registerLocaleData(localeFr, 'fr-FR');
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },

@@ -6,19 +6,28 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private toastr: ToastrService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
+      tap(
+        () => {
+          if(request.method == "POST") {
+            this.toastr.success("Création réussie");
+          }
+        }
+      ),
       catchError(
         (err) => {
+          this.toastr.error(err.error);
           if(err.status == 400) {
-            alert(err);
+            //this.toastr.error(err);
           } else if (err.status == 404) {
 
           }
