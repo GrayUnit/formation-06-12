@@ -11,9 +11,9 @@ import { Order } from '../models/order';
 })
 export class OrderService {
 
-  private pCollection: Subject<Order[]> = new Subject();
+  private pCollection: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
+  private pCollection2: BehaviorSubject<Order[]> = new BehaviorSubject<Order[]>([]);
   private urlApi = environment.urlApi;
-
 
   constructor(private http: HttpClient) {
     this.refreshCollection();
@@ -41,6 +41,11 @@ export class OrderService {
         this.pCollection.next(data);
       }
     );
+  }
+
+  public testBehavior() {
+    // acces de façon synchrone à la derniere valeur stockée
+    this.pCollection2.value;
   }
 
   get collection(): Observable<Order[]> {

@@ -1,11 +1,12 @@
 <app-template-a title="Client" subtitle="Listing">
-    <app-tab-list [headers]="headers">
+    <app-tab-list [headers]="headers" *ngIf="collectionClient$ | async as collectionClient">
         <tr *ngFor="let item of collectionClient">
             <td>{{ item.name }}</td>
             <td>{{ item.ca }}</td>
             <td>{{ item.state }}</td>
             <td>
                 <app-icon-edit (click)="goToUpdate(item)"></app-icon-edit>
+                <app-icon-delete (click)="deleteItem(item)"></app-icon-delete>
             </td>
         </tr>
     </app-tab-list>

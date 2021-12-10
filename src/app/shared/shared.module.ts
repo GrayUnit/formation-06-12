@@ -9,6 +9,7 @@ import { StateDirective } from './directives/state.directive';
 import { BtnComponent } from './components/btn/btn.component';
 import { RouterModule } from '@angular/router';
 import { IconsModule } from '../icons/icons.module';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { IconsModule } from '../icons/icons.module';
     TabListDarkComponent,
     FormatTextPipe,
     StateDirective,
-    BtnComponent
+    BtnComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { IconsModule } from '../icons/icons.module';
     FormatTextPipe,
     StateDirective,
     BtnComponent,
-    IconsModule
+    IconsModule,
+    ModalComponent
   ]
 })
 export class SharedModule { }

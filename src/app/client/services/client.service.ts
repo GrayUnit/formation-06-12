@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Client } from '../models/client';
 
@@ -10,27 +10,51 @@ import { Client } from '../models/client';
 })
 export class ClientService {
 
-  private pCollection: Observable<Client[]>;
+  private pCollection: Subject<Client[]> = new Subject();
   private urlApi = environment.urlApi;
 
   constructor(private http: HttpClient) { 
-    this.pCollection = this.http.get<Client[]>(`${this.urlApi}clients`).pipe(
+    this.refreshCollection();
+  }
+
+  public refreshCollection() {
+    this.http.get<Client[]>(`${this.urlApi}clients`).pipe(
       map((tab) => {
         return tab.map((item) => new Client(item))
+      })
+    ).subscribe(
+      (datas) => {
+        this.pCollection.next(datas);
+      }
+    )
+  }
+
+  get collection(): Observable<Client[]> {
+    return this.pCollection.asObservable();
+  }
+
+  public addItem(item: Client): Observable<Client> {
+    return this.http.post<Client>(`${this.urlApi}clients`, item).pipe(
+      tap(() => {
+        this.refreshCollection();
       })
     );
   }
 
-  get collection(): Observable<Client[]> {
-    return this.pCollection;
-  }
-
-  public addItem(item: Client): Observable<Client> {
-    return this.http.post<Client>(`${this.urlApi}clients`, item);
-  }
-
   public updateItem(item: Client): Observable<Client> {
-    return this.http.put<Client>(`${this.urlApi}clients/${item.id}`, item);
+    return this.http.put<Client>(`${this.urlApi}clients/${item.id}`, item).pipe(
+      tap(() => {
+        this.refreshCollection();
+      })
+    );
+  }
+  
+  public deleteItem(item: Client): Observable<Client> {
+    return this.http.delete<Client>(`${this.urlApi}clients/${item.id}`).pipe(
+      tap(() => {
+        this.refreshCollection();
+      })
+    )
   }
 
   public getItemById(id: number): Observable<Client> {

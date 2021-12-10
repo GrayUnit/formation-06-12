@@ -1,5 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Order } from '../../models/order';
@@ -16,10 +17,15 @@ export class PageEditOrderComponent implements OnInit, OnDestroy {
   // public item!: Order;
   public id!: number;
   public subscription!: Subscription;
+  @ViewChild('updateOrderModal') updateModalRef!: TemplateRef<any>;
+  private modalValues!: Order;
+  private currentActiveModal!: NgbModalRef;
+
   constructor(
     private orderService: OrderService,
     private currentRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) {
     this.router.getCurrentNavigation()?.extras.state?.data;
     console.log(this.router.getCurrentNavigation()?.extras.state);
@@ -58,12 +64,26 @@ export class PageEditOrderComponent implements OnInit, OnDestroy {
     // )
   }
 
-  public edit(item: Order) {
+  public edit(item?: Order) {
+    if(item==undefined) {
+      item = this.modalValues;
+    }
     this.orderService.updateItem(item).subscribe(
       () => {
+        this.dismiss();
         this.router.navigate(['orders']);
       }
     )
+  }
+
+  public openUpdateModal(values: Order) {
+    this.modalValues = values;
+    this.currentActiveModal = this.modalService.open(this.updateModalRef);
+  }
+
+
+  public dismiss() {
+    this.currentActiveModal.dismiss();
   }
 
   ngOnDestroy(): void {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Client } from '../../models/client';
 import { ClientService } from '../../services/client.service';
 
@@ -10,7 +11,7 @@ import { ClientService } from '../../services/client.service';
 })
 export class PageListClientComponent implements OnInit {
 
-  public collectionClient: Client[] = [];
+  public collectionClient$: Observable<Client[]>;
   public headers: string[];
   constructor(
     private clientService: ClientService,
@@ -22,17 +23,18 @@ export class PageListClientComponent implements OnInit {
       "State",
       "Actions"
     ]
+    this.collectionClient$ = this.clientService.collection;
+    this.clientService.refreshCollection();
   }
 
   ngOnInit(): void {
-    this.clientService.collection.subscribe(
-      (datas) => {
-        this.collectionClient = datas;
-      }
-    )
   }
 
   public goToUpdate(item: Client) {
     this.router.navigate(['clients', 'edit', item.id]);
+  }
+
+  public deleteItem(item: Client) {
+    this.clientService.deleteItem(item).subscribe();
   }
 }
