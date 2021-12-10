@@ -50,5 +50,21 @@
       "state": "Active",
       "id": 3
     }
+  ],
+  "users": [
+    {
+      "email": "test@test.fr",
+      "password": "$2a$10$pVJo5yUICyBdMgljzyHac.gDcdtPBMgdrsYOyySmAKaCW8v1dKsNS",
+      "firstName": "test",
+      "lastName": "test",
+      "id": 1
+    },
+    {
+      "email": "test1@test.fr",
+      "password": "$2a$10$W1kJupGPM8ZEzZciTRlF4ODbw4z0Td.HACt0iyArMFcucHi5n8zOu",
+      "firstName": "test",
+      "lastName": "test",
+      "id": 2
+    }
   ]
 }

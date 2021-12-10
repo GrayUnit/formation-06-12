@@ -7,9 +7,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UiModule } from './ui/ui.module';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 
 registerLocaleData(localeFr, 'fr-FR');
 
@@ -28,7 +30,9 @@ registerLocaleData(localeFr, 'fr-FR');
     HttpClientModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'fr-FR' }
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })
