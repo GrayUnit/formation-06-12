@@ -1,0 +1,6 @@
+{
+    "Home": {
+        "WelcomeText": "Bienvenue sur l'application",
+        "WelcomeTextVar": "Bienvenue sur l'application : {{ title }}"
+    }
+}

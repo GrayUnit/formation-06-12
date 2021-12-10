@@ -10,6 +10,7 @@ import { FormOrderComponent } from './components/form-order/form-order.component
 import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.component';
 import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forChild()
   ]
 })
 export class OrderModule { }

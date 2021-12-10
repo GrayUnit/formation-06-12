@@ -1,0 +1,6 @@
+{
+    "Home": {
+        "WelcomeText": "Welcome on app",
+        "WelcomeTextVar": "Welcome on app : {{ title }}"
+    }
+}
